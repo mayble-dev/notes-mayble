@@ -68,7 +68,7 @@
         flex-direction: column;
         gap: 7px;
 
-        &-item {
+        &-item { 
             margin: 0% 0% 1% 0%;
             background: rgba(48,48,48,0.5);
             -webkit-backdrop-filter: blur(10px);
@@ -77,27 +77,28 @@
             padding: 10px;
             border-radius: 15px;
             cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
             transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
             border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1),
             color 250ms cubic-bezier(0.4, 0, 0.2, 1),
             padding 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            -webkit-user-select: none;
             font-family: 'Mulish', sans-serif;
             color: white;
-
+            
+            
             @media (min-width: 1200px) {
                 padding: 20px;
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: var(--theme-color);
+                    border-radius: 2px;
+                    color: var(--accent-text-color);
+                    padding-left: 30px;
+                }
             }
-
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: var(--theme-color);
-                border-radius: 2px;
-                color: var(--accent-text-color);
-                padding-left: 30px;
-            }
-
+            
             &-selected {
                 background-color: var(--theme-color);
                 color: var(--accent-text-color);
@@ -119,6 +120,11 @@
             text-align: right;
             font-style: italic;
             font-size: clamp(.8rem, .9vw, 5rem);
+        }
+
+        &-animation {
+            position: absolute;
+            top: 0;
         }
     }
 

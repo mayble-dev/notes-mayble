@@ -1,15 +1,3 @@
-var spellcheck = 'false'
-
-//SPELL CHECKING OFF
-function disableSpellCheck() {
-    var notes = document.querySelector('#disable-spell_check')
-
-    notes.addEventListener('click', function() {
-        spellcheck = 'true'
-        console.log('spell working')
-    })
-}
-
 export default class NotesView {
     constructor(root, {
         onNoteSelect,
@@ -29,7 +17,7 @@ export default class NotesView {
                 <button class="menu__add-btn" type="button"><i class="fa-solid fa-plus" style="margin-right: .2em;"></i> Add Note</button>
                 <div class="menu__remove-instruct">(double tap to remove)</div>
                 <div class="menu__list">
-                    <div class="menu__list-item menu__list-item-selected" onclick="hideMenu();">
+                    <div class="menu__list-item menu__list-item-selected menu__list-animation">
                         <div class="menu__list-preview-text">I learnt nothing today.</div>
                         <div class="menu__list-preview-date">Thursday 3:30pm</div>
                     </div>
@@ -39,12 +27,11 @@ export default class NotesView {
             <div class='container'>
             <div class="note">
                 <input class="note__title" type="text" placeholder="Enter title...">
-                <textarea class="note__body" spellcheck='${spellcheck}' placeholder="Write here..." name='richTextField'>Hello world</textarea>
+                <textarea class="note__body" spellcheck='false' placeholder="Write here..." name='richTextField'>Hello world</textarea>
             </div>
             </div>
         `;
 
-        console.log(`${spellcheck}`)
         const btnAddNote = this.root.querySelector(".menu__add-btn");
         const inpTitle = this.root.querySelector(".note__title");
         const inpBody = this.root.querySelector(".note__body");
@@ -101,15 +88,15 @@ export default class NotesView {
         notesListContainer.querySelectorAll(".menu__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
                 
-                noteOther.classList.add('notes-open_anim')
+                // noteOther.classList.add('notes-open_anim')
                 
-                setTimeout(() => {
-                    menu.style.display = 'none';
-                    noteOther.classList.remove('notes-open_anim')
+                // setTimeout(() => {
+                //     menu.style.display = 'none';
+                //     noteOther.classList.remove('notes-open_anim')
                     
-                    note.classList.add('text-open_anim')
-                    menu.classList.remove('side-bar_anim')
-                }, 500);
+                //     note.classList.add('text-open_anim')
+                //     menu.classList.remove('side-bar_anim')
+                // }, 500);
                 this.onNoteSelect(noteListItem.dataset.noteId);
             });
 

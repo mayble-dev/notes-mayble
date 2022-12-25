@@ -13,18 +13,20 @@ window.addEventListener("load", function () {
 //   }, 500);
 // })
 
-//SIDE-BAR
-function navSlide() {
-  const nav = document.querySelector('.menu');
-  const note = document.querySelector('.note__body')
-  note.classList.add('text-open_anim_reverse')
-  note.classList.remove('text-open_anim')
-  setTimeout(() => {
-    nav.classList.add('side-bar_anim')
-    nav.style.display = 'initial'
-    note.classList.remove('text-open_anim_reverse')
-  }, 500);
-}
+//MENU-ANIMATIONS
+
+
+// function navSlide() {
+//   const nav = document.querySelector('.menu');
+//   const note = document.querySelector('.note__body')
+//   note.classList.add('text-open_anim_reverse')
+//   note.classList.remove('text-open_anim')
+//   setTimeout(() => {
+//     nav.classList.add('side-bar_anim')
+//     nav.style.display = 'initial'
+//     note.classList.remove('text-open_anim_reverse')
+//   }, 500);
+// }
 
 //SCREENSHOT
 function screenshotMode() {
@@ -67,9 +69,6 @@ dropdown.addEventListener('click', function() {
 closeBtn.addEventListener('click', function() {
   dropdown.style.display = 'none'
 })
-
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 //FONTS
 
@@ -129,24 +128,4 @@ function themeCheck() {
   }  if (currentTheme === 'expressionTheme') {
     expressionTheme()
   }
-}
-
-//TOOLBAR
-const textField = document.querySelector('.note__body')
-const header = document.querySelector('.header')
-
-var textarea = $('textarea');
-
-textarea.bind("blur", function() {
-   setTimeout(function() {
-    textarea.focus();
-  }, 0);
-});
-
-function enableEditing() {
-  richTextField.document.designMode = 'On'
-}
-
-function execCmd (command) {
-  richTextField.document.execCommand (command, false, null);
 }

@@ -13,6 +13,19 @@ window.addEventListener("load", function () {
 //   }, 500);
 // })
 
+//SIDE-BAR
+function navSlide() {
+  const nav = document.querySelector('.menu');
+  const note = document.querySelector('.note__body')
+  note.classList.add('text-open_anim_reverse')
+  note.classList.remove('text-open_anim')
+  setTimeout(() => {
+    nav.classList.add('side-bar_anim')
+    nav.style.display = 'initial'
+    note.classList.remove('text-open_anim_reverse')
+  }, 500);
+}
+
 //MENU-ANIMATIONS
 
 

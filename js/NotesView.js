@@ -88,15 +88,15 @@ export default class NotesView {
         notesListContainer.querySelectorAll(".menu__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
                 
-                // noteOther.classList.add('notes-open_anim')
+                noteOther.classList.add('notes-open_anim')
                 
-                // setTimeout(() => {
-                //     menu.style.display = 'none';
-                //     noteOther.classList.remove('notes-open_anim')
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                    noteOther.classList.remove('notes-open_anim')
                     
-                //     note.classList.add('text-open_anim')
-                //     menu.classList.remove('side-bar_anim')
-                // }, 500);
+                    note.classList.add('text-open_anim')
+                    menu.classList.remove('side-bar_anim')
+                }, 500);
                 this.onNoteSelect(noteListItem.dataset.noteId);
             });
 

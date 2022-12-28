@@ -1,166 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Mayble Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./css/main.min.css?v=36" />
+        <link rel="icon" type="image/png" href="media/mini-icon.png" />
+        <link rel="apple-touch-icon" href="media/icon.png" />
+        <script
+            src="https://kit.fontawesome.com/48043303b9.js"
+            crossorigin="anonymous"></script>
+        <script src="js/jquery-3.5.1.min.js"></script>
+    </head>
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Mayble Notes</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.min.css?v=36'>
-    <link rel="icon" type="image/png" href="media/mini-icon.png">
-    <link rel="apple-touch-icon" href="media/icon.png">
-    <script src="https://kit.fontawesome.com/48043303b9.js" crossorigin="anonymous"></script>
-    <script src="js/jquery-3.5.1.min.js"></script>
-</head>
-
-<body onload="enableEditing()">
-    <!-- <div class="preloader">
-        <img src="media/logo.png" alt="">
-        <div class="preloader-background">
-            <p>LOADING</p>
-            <div class="custom-loader"></div>
-        </div>
-    </div> -->
-    <div class="skeleton">
-        <div class="skeleton__header">
-            <div class="skeleton__header-nav"></div>
-            <div class="skeleton__header-logo"></div>
-        </div>
-        <div class="container">
-            <div class="skeleton__heading"></div>
-            <div class="skeleton__btn"></div>
-            <div class="skeleton__hint-text"></div>
-            <div class="skeleton__note">
-                <div class="skeleton__note-heading"></div>
-                <div class="skeleton__note-text"></div>
-                <div class="skeleton__note-text"></div>
-                <div class="skeleton__note-date"></div>
+    <body>
+        <div class="skeleton">
+            <div class="skeleton__header">
+                <div class="skeleton__header-nav"></div>
+                <div class="skeleton__header-logo"></div>
             </div>
-            <div class="skeleton__note">
-                <div class="skeleton__note-heading"></div>
-                <div class="skeleton__note-text"></div>
-                <div class="skeleton__note-date"></div>
+            <div class="container">
+                <div class="skeleton__heading"></div>
+                <div class="skeleton__btn"></div>
+                <div class="skeleton__hint-text"></div>
+                <div class="skeleton__note">
+                    <div class="skeleton__note-heading"></div>
+                    <div class="skeleton__note-text"></div>
+                    <div class="skeleton__note-text"></div>
+                    <div class="skeleton__note-date"></div>
+                </div>
+                <div class="skeleton__note">
+                    <div class="skeleton__note-heading"></div>
+                    <div class="skeleton__note-text"></div>
+                    <div class="skeleton__note-date"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <header class="header">
-        <div class="header__tools">
-            <div class="header__tools-btn" id="option-btn" title="Options">
-                <i class="fa fa-gear header__tools-icon"></i>
+        <header class="header">
+            <div class="header__tools">
+                <div class="header__tools-btn" id="option-btn" title="Options">
+                    <i class="fa fa-gear header__tools-icon"></i>
+                </div>
+                <div
+                    class="header__tools-btn"
+                    id="header__menu-btn"
+                    title="All Notes">
+                    <i class="fa fa-list header__tools-icon"></i>
+                </div>
             </div>
-            <div class="header__tools-btn" title="All Notes" onclick="navSlide()">
-                <i class="fa fa-list header__tools-icon"></i>
-            </div>
-        </div>
-        <a href="index.html"><img src="media/mini-icon.png" alt="Header logo" class="header__logo"></a>
-        <a href="index.html" class="header__text-logo" title="Home"><span class="header__mayble">Mayble</span> <span
-                class="header__notes">Notes</span></a>
-    </header>
-    <section class="main">
-        <div class="notes" id="app">
-            <div class="menu">
-                <div class="container">
-                <h1 class="menu__heading">All Notes</h1>
-                <button class="menu__add-btn" type="button"><i class="fa-solid fa-plus" style="margin-right: .2em;"></i> Add Note</button>
-                <div class="menu__remove-instruct">(double tap to remove)</div>
-                <div class="menu__list">
-                    <div class="menu__list-item menu__list-item-selected menu__list-animation">
-                        <div class="menu__list-preview-text">I learnt nothing today.</div>
-                        <div class="menu__list-preview-date">Thursday 3:30pm</div>
+            <a href="index.html"
+                ><img
+                    src="media/mini-icon.png"
+                    alt="Header logo"
+                    class="header__logo"
+            /></a>
+            <a href="index.html" class="header__text-logo" title="Home"
+                ><span class="header__mayble">Mayble</span>
+                <span class="header__notes">Notes</span></a
+            >
+        </header>
+        <section class="main">
+            <div class="notes" id="app">
+                <div class="menu">
+                    <div class="container">
+                        <h1 class="menu__heading">All Notes</h1>
+                        <button class="menu__add-btn" type="button">
+                            <i
+                                class="fa-solid fa-plus"
+                                style="margin-right: 0.2em"></i>
+                            Add Note
+                        </button>
+                        <div class="menu__remove-instruct">
+                            (double tap to remove)
+                        </div>
+                        <div class="menu__list">
+                            <div
+                                class="menu__list-item menu__list-item-selected menu__list-animation">
+                                <div class="menu__list-preview-text">
+                                    I learnt nothing today.
+                                </div>
+                                <div class="menu__list-preview-date">
+                                    Thursday 3:30pm
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="note">
+                            <input
+                                class="note__title"
+                                type="text"
+                                placeholder="Enter the title..." />
+                            <textarea
+                                class="note__body"
+                                name="textField"
+                                spellcheck="false"
+                                placeholder="Type here..."></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="note">
-                    <input class="note__title" type="text" placeholder="Enter the title...">
-                    <textarea class="note__body" name="textField" spellcheck="false"
-                        placeholder="Type here..."></textarea>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
+        </section>
         <div class="settings">
             <div class="settings__menu">
                 <div class="settings__menu-header">
                     <h1 class="settings__menu-header-title">Settings</h1>
-                    <button class="settings__close"><i class="fa-solid fa-xmark settings__close-icon" id="menu-extend"></i></button>
+                    <button class="settings__close">
+                        <i
+                            class="fa-solid fa-xmark settings__close-icon"
+                            id="menu-extend"></i>
+                    </button>
                 </div>
                 <ul class="settings__menu-list">
-                    <details class="settings__menu-list-item" id="themes-dropdown">
+                    <details
+                        class="settings__menu-list-item"
+                        id="themes-dropdown">
                         <summary class="settings__menu-list-dropdown dropdown">
-                            <img class="settings__menu-list-icon" src="media/themes-icon.webp" alt="Spellcheck Icon">
+                            <img
+                                class="settings__menu-list-icon"
+                                src="media/themes-icon.webp"
+                                alt="Spellcheck Icon" />
                             <div class="settings__menu-list-text">
                                 <h2 class="settings__menu-list-name">Themes</h2>
-                                <p class="settings__menu-list-description">Select the theme for the app.</p>
+                                <p class="settings__menu-list-description">
+                                    Select the theme for the app.
+                                </p>
                             </div>
-                            <i class="fa-solid fa-angle-right settings__menu-list-arrow" id="menu-extend"></i>
+                            <i
+                                class="fa-solid fa-angle-right settings__menu-list-arrow"
+                                id="menu-extend"></i>
                         </summary>
-                        <ul class="settings__menu-list-submenu" id="themes-submenu">
-                            <li><h2 class="settings__menu-list-name" onclick="defaultTheme()">Default</h2></li>
-                            <li><h2 class="settings__menu-list-name" onclick="seaFoamGreenTheme()">Sea Foam Green</h2></li>
-                            <li><h2 class="settings__menu-list-name" onclick="cyberpunkTheme()">Cyberpunk</h2></li>
-                            <li><h2 class="settings__menu-list-name" onclick="expressionTheme()">Expression</h2></li>
+                        <ul
+                            class="settings__menu-list-submenu"
+                            id="themes-submenu">
+                            <li>
+                                <h2
+                                    class="settings__menu-list-name"
+                                    onclick="defaultTheme()">
+                                    Default
+                                </h2>
+                            </li>
+                            <li>
+                                <h2
+                                    class="settings__menu-list-name"
+                                    onclick="seaFoamGreenTheme()">
+                                    Sea Foam Green
+                                </h2>
+                            </li>
+                            <li>
+                                <h2
+                                    class="settings__menu-list-name"
+                                    onclick="cyberpunkTheme()">
+                                    Cyberpunk
+                                </h2>
+                            </li>
+                            <li>
+                                <h2
+                                    class="settings__menu-list-name"
+                                    onclick="expressionTheme()">
+                                    Expression
+                                </h2>
+                            </li>
                         </ul>
                     </details>
-                    <details class="settings__menu-list-item" id="fonts-dropdown">
+                    <details
+                        class="settings__menu-list-item"
+                        id="fonts-dropdown">
                         <summary class="settings__menu-list-dropdown dropdown">
-                            <img class="settings__menu-list-icon" src="media/font-icon.webp" alt="Font Icon">
+                            <img
+                                class="settings__menu-list-icon"
+                                src="media/font-icon.webp"
+                                alt="Font Icon" />
                             <div class="settings__menu-list-text">
                                 <h2 class="settings__menu-list-name">Fonts</h2>
-                                <p class="settings__menu-list-description">Change the font of the note.</p>
+                                <p class="settings__menu-list-description">
+                                    Change the font of the note.
+                                </p>
                             </div>
-                            <i class="fa-solid fa-angle-right settings__menu-list-arrow" id="menu-extend"></i>
+                            <i
+                                class="fa-solid fa-angle-right settings__menu-list-arrow"
+                                id="menu-extend"></i>
                         </summary>
-                        <ul class="settings__menu-list-submenu" id="fonts-submenu">
+                        <ul
+                            class="settings__menu-list-submenu"
+                            id="fonts-submenu">
                             <li onclick="sansSerifFont()">
                                 <h2 class="settings__menu-list-name">Mulish</h2>
-                                <p class="settings__menu-list-description">(Default) Sans-Serif font.</p>
+                                <p class="settings__menu-list-description">
+                                    (Default) Sans-Serif font.
+                                </p>
                             </li>
                             <li onclick="serifFont()">
-                                <h2 class="settings__menu-list-name">Gentium Book Plus</h2>
-                                <p class="settings__menu-list-description">Serif font.</p>
+                                <h2 class="settings__menu-list-name">
+                                    Gentium Book Plus
+                                </h2>
+                                <p class="settings__menu-list-description">
+                                    Serif font.
+                                </p>
                             </li>
                         </ul>
                     </details>
                     <li class="settings__menu-list-item">
-                        <a href="https://wordcounter.net/" class="settings__menu-list-dropdown no-decor" rel=”noreferrer” target="_SEJ">
-                            <img class="settings__menu-list-icon" src="media/counter-icon.webp" alt="Counter Icon">
+                        <a
+                            href="https://wordcounter.net/"
+                            class="settings__menu-list-dropdown no-decor"
+                            rel="”noreferrer”"
+                            target="_SEJ">
+                            <img
+                                class="settings__menu-list-icon"
+                                src="media/counter-icon.webp"
+                                alt="Counter Icon" />
                             <div class="settings__menu-list-text">
-                                <h2 class="settings__menu-list-name">Word Counter</h2>
-                                <p class="settings__menu-list-description">Open a word counter website.</p>
+                                <h2 class="settings__menu-list-name">
+                                    Word Counter
+                                </h2>
+                                <p class="settings__menu-list-description">
+                                    Open a word counter website.
+                                </p>
                             </div>
-                            <i class="fa-solid fa-angle-right settings__menu-list-arrow" id="menu-extend"></i>
+                            <i
+                                class="fa-solid fa-angle-right settings__menu-list-arrow"
+                                id="menu-extend"></i>
                         </a>
                     </li>
                     <li class="settings__menu-list-item">
                         <div class="settings__menu-list-dropdown">
-                            <img class="settings__menu-list-icon" src="media/screenshot-icon.webp" alt="Screenshot Icon">
+                            <img
+                                class="settings__menu-list-icon"
+                                src="media/screenshot-icon.webp"
+                                alt="Screenshot Icon" />
                             <div class="settings__menu-list-text">
-                                <h2 class="settings__menu-list-name">Screenshot Mode</h2>
-                                <p class="settings__menu-list-description">Hide some parts of interface to show more content for screenshot.</p>
+                                <h2 class="settings__menu-list-name">
+                                    Screenshot Mode
+                                </h2>
+                                <p class="settings__menu-list-description">
+                                    Hide some parts of interface to show more
+                                    content for screenshot.
+                                </p>
                             </div>
-                            <i class="fa-solid fa-angle-right settings__menu-list-arrow" id="menu-extend"></i>
+                            <i
+                                class="fa-solid fa-angle-right settings__menu-list-arrow"
+                                id="menu-extend"></i>
                         </div>
                     </li>
                     <li class="settings__menu-list-item">
                         <div class="settings__menu-list-dropdown">
-                            <img class="settings__menu-list-icon" src="media/spellcheck-icon.webp" alt="Spellcheck Icon">
+                            <img
+                                class="settings__menu-list-icon"
+                                src="media/spellcheck-icon.webp"
+                                alt="Spellcheck Icon" />
                             <div class="settings__menu-list-text">
-                                <h2 class="settings__menu-list-name">Spell Checking</h2>
-                                <p class="settings__menu-list-description">Turn off spell checking of the text in the notes.</p>
+                                <h2 class="settings__menu-list-name">
+                                    Spell Checking
+                                </h2>
+                                <p class="settings__menu-list-description">
+                                    Turn off spell checking of the text in the
+                                    notes.
+                                </p>
                             </div>
-                            <i class="fa-solid fa-angle-right settings__menu-list-arrow" id="menu-extend"></i>
+                            <i
+                                class="fa-solid fa-angle-right settings__menu-list-arrow"
+                                id="menu-extend"></i>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
-    <script src="./js/main.js?v=36" type="module"></script>
-    <script src="./js/engine.js?v=36"></script>
-    <script src="./js/NotesView.js?v=36"></script>
-</body>
-
+        <script src="./js/NotesView.js?v=36"></script>
+        <script src="./js/main.js?v=36" type="module"></script>
+        <script src="./js/engine.js?v=36"></script>
+    </body>
 </html>

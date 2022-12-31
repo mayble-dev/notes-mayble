@@ -50,10 +50,11 @@ details > summary::-webkit-details-marker {
 
 body {
     max-height: 100vh;
-    background: #0b0b0b;
+    background: var(--sidebarBackground);
     -webkit-font-smoothing: subpixel-antialiased;
     overflow: hidden;
     scroll-behavior: smooth;
+    position: relative;
 }
 
 .container {

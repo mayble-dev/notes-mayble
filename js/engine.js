@@ -13,11 +13,9 @@ menuListBtn.addEventListener('click', function () {
     const note = document.querySelector('.note');
     menu.classList.remove('menu__close-anim');
     note.classList.remove('note__open-anim');
-    note.classList.add('note__close-anim');
-    setTimeout(() => {
-        menu.classList.add('menu__open-anim');
-        console.log('closing animation done');
-    }, 1000);
+    // setTimeout(() => {
+    //     console.log('closing animation done');
+    // }, 1000);
 });
 
 //SCREENSHOT

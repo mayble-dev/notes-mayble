@@ -76,15 +76,74 @@ function serifFont() {
 
 //THEMES
 
-function defaultTheme() {
-    document.documentElement.style.setProperty(
-        '--sidebarBackground',
-        'linear-gradient(0deg, #ab8b89 0%, #1a517e 100%)'
-    );
-    document.documentElement.style.setProperty('--theme-color', '#FCEC7B');
-    document.documentElement.style.setProperty('--accent-text-color', 'black');
-    localStorage.setItem('notesTheme', 'default');
+const lightDarkModeSwitch = document.querySelector('#light-dark-mode-switch');
+const temporal = localStorage.getItem('notesLightDarkSwitch');
+
+lightDarkModeSwitch.addEventListener(
+    'click',
+    function isLightDarkSwitchCkecked() {
+        if (lightDarkModeSwitch.checked === true) {
+            localStorage.setItem('notesLightDarkSwitch', 'checked');
+        } else if (lightDarkModeSwitch.checked === false) {
+            localStorage.setItem('notesLightDarkSwitch', 'unchecked');
+        }
+    }
+);
+
+if (temporal === 'checked') {
+    lightDarkModeSwitch.setAttribute('checked', true);
+} else if (temporal === 'unchecked') {
+    lightDarkModeSwitch.setAttribute('unchecked', false);
 }
+window.onload = themeCheck();
+
+function themeCheck() {
+    var currentTheme = localStorage.getItem('notesTheme');
+}
+
+if (lightDarkModeSwitch.checked === true) {
+    if (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: light)').matches
+    ) {
+        document.documentElement.style.setProperty(
+            '--sidebarBackground',
+            'linear-gradient(146deg, rgba(198,216,237,1) 0%, rgba(244,236,241,1) 100%)'
+        );
+        document.documentElement.style.setProperty('--theme-color', '#b0c3de');
+        document.documentElement.style.setProperty(
+            '--accent-text-color',
+            'white'
+        );
+        localStorage.setItem('notesTheme', 'light');
+    } else if (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+        document.documentElement.style.setProperty(
+            '--sidebarBackground',
+            'linear-gradient(146deg, rgba(7,19,41,1) 0%, rgba(15,37,76,1) 100%)'
+        );
+        document.documentElement.style.setProperty('--theme-color', '#1760ff');
+        document.documentElement.style.setProperty(
+            '--accent-text-color',
+            'white'
+        );
+        localStorage.setItem('notesTheme', 'dark');
+    }
+} else
+    function defaultTheme() {
+        document.documentElement.style.setProperty(
+            '--sidebarBackground',
+            'linear-gradient(0deg, #ab8b89 0%, #1a517e 100%)'
+        );
+        document.documentElement.style.setProperty('--theme-color', '#FCEC7B');
+        document.documentElement.style.setProperty(
+            '--accent-text-color',
+            'black'
+        );
+        localStorage.setItem('notesTheme', 'default');
+    }
 
 function seaFoamGreenTheme() {
     document.documentElement.style.setProperty(
@@ -121,22 +180,22 @@ function expressionTheme() {
     );
     localStorage.setItem('notesTheme', 'expressionTheme');
 }
-
 window.onload = themeCheck();
 
 function themeCheck() {
     var currentTheme = localStorage.getItem('notesTheme');
 
-    if (currentTheme === 'default') {
+    if (currentTheme === 'light') {
+        lightDarkMode();
+    } else if (currentTheme === 'dark') {
+        lightDarkMode();
+    } else if (currentTheme === 'default') {
         defaultTheme();
-    }
-    if (currentTheme === 'seaFoamGreenTheme') {
+    } else if (currentTheme === 'seaFoamGreenTheme') {
         seaFoamGreenTheme();
-    }
-    if (currentTheme === 'cyberpunkTheme') {
+    } else if (currentTheme === 'cyberpunkTheme') {
         cyberpunkTheme();
-    }
-    if (currentTheme === 'expressionTheme') {
+    } else if (currentTheme === 'expressionTheme') {
         expressionTheme();
     }
 }

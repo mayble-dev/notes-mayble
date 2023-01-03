@@ -74,8 +74,7 @@
                         <h1 class="menu__heading">All Notes</h1>
                         <button class="menu__add-btn" type="button">
                             <i
-                                class="fa-solid fa-plus"
-                                style="margin-right: 0.2em"></i>
+                                class="fa-solid fa-plus"></i>
                             Add Note
                         </button>
                         <div class="menu__remove-instruct">
@@ -141,11 +140,27 @@
                         <ul
                             class="settings__menu-list-submenu"
                             id="themes-submenu">
-                            <li>
+                            <li
+                                title="Enables changing color scheme according to system default setting (only in browsers with 'prefers-color-scheme' support).">
+                                <h2
+                                    class="settings__menu-list-name"
+                                    >
+                                    Auto Light / Dark Mode &#9432
+                                </h2>
+                                <div class="checkbox">
+                                    <input
+                                        class="tgl tgl-flat"
+                                        id="light-dark-mode-switch"
+                                        type="checkbox"
+                                        onclick="isLightDarkSwitchCkecked()"/>
+                                    <label class="tgl-btn" for="light-dark-mode-switch"></label>
+                                </div>
+                            </li>
+                            <li title="Basic theme.">
                                 <h2
                                     class="settings__menu-list-name"
                                     onclick="defaultTheme()">
-                                    Default
+                                    Standart &#9432
                                 </h2>
                             </li>
                             <li>

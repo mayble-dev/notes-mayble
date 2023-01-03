@@ -1,10 +1,11 @@
-@import "./utils/base";
-@import "./utils/fonts";
+@import './utils/base';
+@import './utils/fonts';
+// @import './utils/variables';
 
-@import "./components/animations";
-@import "./components/header";
-@import "./components/list-notes";
-@import "./components/note";
-@import "./components/preloader";
-@import "./components/settings";
-@import "./components/skeleton";
+@import './components/animations';
+@import './components/header';
+@import './components/list-notes';
+@import './components/note';
+@import './components/preloader';
+@import './components/settings';
+@import './components/skeleton';

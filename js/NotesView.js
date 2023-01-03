@@ -25,7 +25,7 @@ export default class NotesView {
             <div class='container'>
             <div class="note">
                 <input class="note__title" type="text" placeholder="Enter title...">
-                <textarea class="note__body" spellcheck='false' placeholder="Write here..." name='richTextField'>Hello world</textarea>
+                <textarea class="note__body" spellcheck='true' placeholder="Write here..." name='richTextField'>Hello world</textarea>
             </div>
             </div>
         `;
@@ -97,7 +97,6 @@ export default class NotesView {
                         menu.classList.add('menu__close-anim');
                         note.classList.add('note__open-anim');
                     }, 500);
-                    console.log('opening animation');
                     this.onNoteSelect(noteListItem.dataset.noteId);
                 });
 

@@ -105,13 +105,11 @@
             &::-webkit-scrollbar {
                 width: 0.3em;
                 background-color: transparent;
-                cursor: pointer;
             }
 
             &::-webkit-scrollbar-thumb {
                 background-color: var(--theme-color);
                 border-radius: 50px;
-                cursor: pointer;
             }
 
             @media (min-width: 768px) {
@@ -178,7 +176,7 @@
 
             &-name {
                 font-family: 'Mulish';
-                font-size: clamp(1.3rem, 1.4vw, 6rem);
+                font-size: clamp(1.3rem, 1.2vw, 3rem);
                 font-weight: 700;
                 color: white;
             }
@@ -231,6 +229,15 @@
                         border: 1px solid rgba(103, 103, 103, 0.25);
                     }
                 }
+            }
+
+            &-unavailable {
+                width: 100%;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                background-color: var(--skeleton-primary);
+                color: var(--skeleton-secondary);
+                pointer-events: none;
             }
         }
     }

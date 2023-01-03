@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --theme-color: #fcec7b;
+    --accent-text-color: black;
+    --sidebarBackground: linear-gradient(0deg, #ab8b89 0%, #1a517e 100%);
+    --skeleton-background: #0e0e0e;
+    --skeleton-primary: #141414;
+    --skeleton-secondary: #1d1d1d;
+}
+
 @keyframes shimmer {
     0% {
         background-position: 100% 100%;
@@ -40,7 +49,6 @@ details > summary::-webkit-details-marker {
 }
 
 body {
-    max-height: 100vh;
     background: var(--sidebarBackground);
     -webkit-font-smoothing: subpixel-antialiased;
     overflow: hidden;
@@ -48,8 +56,14 @@ body {
     position: relative;
 }
 
+.main {
+    width: 100%;
+    height: 100%;
+}
+
 .container {
     max-width: 650px;
+    height: 100%;
     margin: auto;
 
     @media (min-width: 768px) {

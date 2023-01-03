@@ -141,23 +141,26 @@ function darkTheme() {
     localStorage.setItem('notesTheme', 'dark');
 }
 
-function lightDarkSwitchHandler() {
-    if (lightDarkModeSwitch.checked === true) {
-        localStorage.setItem('notesLightDarkSwitch', 'checked');
-        lightDarkModeSwitch.setAttribute('checked', true);
-        lightDarkMode();
-    } else if (
-        lightDarkModeSwitch.checked == false ||
-        temporal === 'unchecked'
-    ) {
-        localStorage.setItem('notesLightDarkSwitch', 'unchecked');
-        lightDarkModeSwitch.setAttribute('unchecked', false);
-        defaultTheme();
+function menuItemSilence() {
+    const silence = document.querySelectorAll('#canBeSilenced');
+
+    for (const canBeSilenced of silence) {
+        canBeSilenced.classList.add('settings__menu-list-unavailable');
+    }
+}
+
+function menuItemUnsilence() {
+    const silence = document.querySelectorAll('#canBeSilenced');
+
+    for (const canBeSilenced of silence) {
+        canBeSilenced.classList.remove('settings__menu-list-unavailable');
     }
 }
 
 const lightDarkModeSwitch = document.querySelector('#light-dark-mode-switch');
+const transparencySwitch = document.querySelector('#transparency-switch');
 const temporal = localStorage.getItem('notesLightDarkSwitch');
+const body = document.querySelector('.body');
 
 lightDarkModeSwitch.addEventListener('click', function () {
     lightDarkSwitchHandler();
@@ -165,8 +168,10 @@ lightDarkModeSwitch.addEventListener('click', function () {
 
 if (temporal === 'checked') {
     lightDarkModeSwitch.setAttribute('checked', true);
+    menuItemSilence();
     lightDarkMode();
 } else if (temporal === 'unchecked') {
+    menuItemUnsilence();
     themeCheck();
 }
 
@@ -194,6 +199,10 @@ function themeCheck() {
         lightDarkMode();
     } else if (temporal === 'checked' && currentTheme === 'dark') {
         lightDarkMode();
+    } else if (temporal !== 'checked' && currentTheme === 'light') {
+        lightTheme();
+    } else if (temporal !== 'checked' && currentTheme === 'dark') {
+        darkTheme();
     } else if (currentTheme === 'default') {
         defaultTheme();
     } else if (currentTheme === 'seaFoamGreenTheme') {
@@ -202,11 +211,59 @@ function themeCheck() {
         cyberpunkTheme();
     } else if (currentTheme === 'expressionTheme') {
         expressionTheme();
+    } else {
+        defaultTheme();
     }
+}
 
-    // if (temporal === 'checked') {
-    //     lightDarkModeSwitch.setAttribute('checked', true);
-    // } else if (temporal === 'unchecked') {
-    //     lightDarkModeSwitch.setAttribute('unchecked', false);
-    // }
+function lightDarkSwitchHandler() {
+    if (lightDarkModeSwitch.checked === true) {
+        localStorage.setItem('notesLightDarkSwitch', 'checked');
+        lightDarkModeSwitch.setAttribute('checked', true);
+        menuItemSilence();
+        lightDarkMode();
+    } else if (
+        lightDarkModeSwitch.checked == false ||
+        temporal === 'unchecked'
+    ) {
+        localStorage.setItem('notesLightDarkSwitch', 'unchecked');
+        lightDarkModeSwitch.setAttribute('unchecked', false);
+        menuItemUnsilence();
+        defaultTheme();
+    }
+}
+
+function transparencyEnable() {
+    body.style.background = 'var(--sidebarBackground)';
+}
+
+function transparencyDisable() {
+    body.style.background = 'black';
+}
+
+function transparencyHandler() {
+    if (transparencySwitch.checked === true) {
+        transparencyEnable();
+        localStorage.setItem('notesTransparencySwitch', 'enabled');
+    } else if (
+        transparencySwitch.checked === false ||
+        transparencyInfo === 'disabled'
+    ) {
+        transparencyDisable();
+        localStorage.setItem('notesTransparencySwitch', 'disabled');
+    }
+}
+
+transparencySwitch.addEventListener('click', function () {
+    transparencyHandler();
+});
+
+const transparencyInfo = localStorage.getItem('notesTransparencySwitch');
+
+if (transparencyInfo === 'enabled') {
+    transparencyEnable();
+    transparencySwitch.setAttribute('checked', true);
+} else if (transparencyInfo === 'disabled') {
+    transparencyDisable();
+    transparencySwitch.setAttribute('unchecked', false);
 }

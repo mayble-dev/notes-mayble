@@ -21,7 +21,7 @@
         <script src="js/jquery-3.5.1.min.js"></script>
     </head>
 
-    <body>
+    <body class="body">
         <div class="skeleton">
             <div class="skeleton__header">
                 <div class="skeleton__header-nav"></div>
@@ -46,15 +46,15 @@
         </div>
         <header class="header">
             <div class="header__tools">
-                <div class="header__tools-btn" id="option-btn" title="Options">
+                <button class="header__tools-btn" id="option-btn" title="Options">
                     <i class="fa fa-gear header__tools-icon"></i>
-                </div>
-                <div
+                </button>
+                <button
                     class="header__tools-btn"
                     id="header__menu-btn"
                     title="All Notes">
                     <i class="fa fa-list header__tools-icon"></i>
-                </div>
+                </button>
             </div>
             <a href="index.html"
                 ><img
@@ -67,7 +67,7 @@
                 <span class="header__notes">Notes</span></a
             >
         </header>
-        <section class="main">
+        <main class="main">
             <div class="notes" id="app">
                 <div class="menu">
                     <div class="container">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </main>
         <div class="settings">
             <div class="settings__menu">
                 <div class="settings__menu-header">
@@ -145,7 +145,7 @@
                                 <h2
                                     class="settings__menu-list-name"
                                     >
-                                    Auto Light / Dark Mode &#9432
+                                    System Light / Dark Mode &#9432
                                 </h2>
                                 <div class="checkbox">
                                     <input
@@ -156,35 +156,56 @@
                                     <label class="tgl-btn" for="light-dark-mode-switch"></label>
                                 </div>
                             </li>
+                            <li onclick="lightTheme()" id="canBeSilenced">
+                                <h2 class="settings__menu-list-name" id="canBeSilenced">
+                                    Light Mode
+                                </h2>
+                            </li>
+                            <li onclick="darkTheme()" id="canBeSilenced">
+                                <h2 class="settings__menu-list-name" id="canBeSilenced">
+                                    Dark Mode
+                                </h2>
+                            </li>
                             <br>
                             <br>
-                            <li title="Basic theme.">
+                            <li title="Basic theme." onclick="defaultTheme()" id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name"
-                                    onclick="defaultTheme()">
+                                    class="settings__menu-list-name" id="canBeSilenced">
                                     Standart &#9432
                                 </h2>
                             </li>
-                            <li>
+                            <li onclick="seaFoamGreenTheme()" id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name"
-                                    onclick="seaFoamGreenTheme()">
+                                    class="settings__menu-list-name" id="canBeSilenced">
                                     Sea Foam Green
                                 </h2>
                             </li>
-                            <li>
+                            <li onclick="cyberpunkTheme()" id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name"
-                                    onclick="cyberpunkTheme()">
+                                    class="settings__menu-list-name" id="canBeSilenced">
                                     Cyberpunk
                                 </h2>
                             </li>
-                            <li>
+                            <li onclick="expressionTheme()" id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name"
-                                    onclick="expressionTheme()">
+                                    class="settings__menu-list-name" id="canBeSilenced">
                                     Expression
                                 </h2>
+                            </li>
+                            <br>
+                            <br>
+                            <li>
+                                <h2
+                                    class="settings__menu-list-name">
+                                    Transparency
+                                </h2>
+                                <div class="checkbox">
+                                    <input
+                                        class="tgl tgl-flat"
+                                        id="transparency-switch"
+                                        type="checkbox"/>
+                                    <label class="tgl-btn" for="transparency-switch"></label>
+                                </div>
                             </li>
                         </ul>
                     </details>

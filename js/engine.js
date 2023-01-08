@@ -6,22 +6,19 @@ window.addEventListener('load', function () {
     }, 500);
 });
 
+const note = document.querySelector('.note');
 //SIDE-BAR
 const menuListBtn = document.querySelector('#header__menu-btn');
 menuListBtn.addEventListener('click', function () {
     const menu = document.querySelector('.menu');
-    const note = document.querySelector('.note');
     menu.classList.remove('menu__close-anim');
     note.classList.remove('note__open-anim');
-    // setTimeout(() => {
-    //     console.log('closing animation done');
-    // }, 1000);
 });
 
 //SCREENSHOT
 function screenshotMode() {
     const header = document.querySelector('.header');
-    const note = document.querySelector('.note__body');
+
     const btn = document.querySelector('.screenshot-btn');
 
     header.style.display = 'none';
@@ -63,14 +60,10 @@ closeBtn.addEventListener('click', function () {
 //FONTS
 
 function sansSerifFont() {
-    const note = document.querySelector('.note__body');
-
     note.style.fontFamily = 'Mulish';
 }
 
 function serifFont() {
-    const note = document.querySelector('.note__body');
-
     note.style.fontFamily = 'Gentium Book Plus';
 }
 
@@ -266,4 +259,14 @@ if (transparencyInfo === 'enabled') {
 } else if (transparencyInfo === 'disabled') {
     transparencyDisable();
     transparencySwitch.setAttribute('unchecked', false);
+}
+
+const spellCheckSwitch = document.querySelector('#spell-check-switch');
+
+function spellCheck() {
+    if (spellCheckSwitch.checked === true) {
+        note.setAttribute('spellcheck', 'true');
+    } else {
+        note.setAttribute('spellcheck', 'false');
+    }
 }

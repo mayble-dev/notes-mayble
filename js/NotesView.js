@@ -109,6 +109,8 @@ export default class NotesView {
                         this.onNoteDelete(noteListItem.dataset.noteId);
                         setTimeout(() => {
                             menu.style.display = 'initial';
+                            menu.classList.remove('menu__close-anim');
+                            note.classList.remove('note__open-anim');
                         }, 1);
                     }
                 });

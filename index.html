@@ -46,7 +46,10 @@
         </div>
         <header class="header">
             <div class="header__tools">
-                <button class="header__tools-btn" id="option-btn" title="Options">
+                <button
+                    class="header__tools-btn"
+                    id="option-btn"
+                    title="Options">
                     <i class="fa fa-gear header__tools-icon"></i>
                 </button>
                 <button
@@ -73,8 +76,7 @@
                     <div class="container">
                         <h1 class="menu__heading">All Notes</h1>
                         <button class="menu__add-btn" type="button">
-                            <i
-                                class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-plus"></i>
                             Add Note
                         </button>
                         <div class="menu__remove-instruct">
@@ -101,7 +103,7 @@
                             <textarea
                                 class="note__body"
                                 name="textField"
-                                spellcheck="false"
+                                spellcheck="true"
                                 placeholder="Type here..."></textarea>
                         </div>
                     </div>
@@ -142,69 +144,83 @@
                             id="themes-submenu">
                             <li
                                 title="Enables changing color scheme according to system default setting (only in browsers with 'prefers-color-scheme' support).">
-                                <h2
-                                    class="settings__menu-list-name"
-                                    >
-                                    System Light / Dark Mode &#9432
+                                <h2 class="settings__menu-list-name">
+                                    System Light / Dark Mode &#9432;
                                 </h2>
                                 <div class="checkbox">
                                     <input
                                         class="tgl tgl-flat"
                                         id="light-dark-mode-switch"
                                         type="checkbox"
-                                        onclick="lightDarkMode()"/>
-                                    <label class="tgl-btn" for="light-dark-mode-switch"></label>
+                                        onclick="lightDarkMode()" />
+                                    <label
+                                        class="tgl-btn"
+                                        for="light-dark-mode-switch"></label>
                                 </div>
                             </li>
                             <li onclick="lightTheme()" id="canBeSilenced">
-                                <h2 class="settings__menu-list-name" id="canBeSilenced">
+                                <h2
+                                    class="settings__menu-list-name"
+                                    id="canBeSilenced">
                                     Light Mode
                                 </h2>
                             </li>
                             <li onclick="darkTheme()" id="canBeSilenced">
-                                <h2 class="settings__menu-list-name" id="canBeSilenced">
+                                <h2
+                                    class="settings__menu-list-name"
+                                    id="canBeSilenced">
                                     Dark Mode
                                 </h2>
                             </li>
-                            <br>
-                            <br>
-                            <li title="Basic theme." onclick="defaultTheme()" id="canBeSilenced">
+                            <br />
+                            <br />
+                            <li
+                                title="Basic theme."
+                                onclick="defaultTheme()"
+                                id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name" id="canBeSilenced">
-                                    Standart &#9432
+                                    class="settings__menu-list-name"
+                                    id="canBeSilenced">
+                                    Standart &#9432;
                                 </h2>
                             </li>
-                            <li onclick="seaFoamGreenTheme()" id="canBeSilenced">
+                            <li
+                                onclick="seaFoamGreenTheme()"
+                                id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name" id="canBeSilenced">
+                                    class="settings__menu-list-name"
+                                    id="canBeSilenced">
                                     Sea Foam Green
                                 </h2>
                             </li>
                             <li onclick="cyberpunkTheme()" id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name" id="canBeSilenced">
+                                    class="settings__menu-list-name"
+                                    id="canBeSilenced">
                                     Cyberpunk
                                 </h2>
                             </li>
                             <li onclick="expressionTheme()" id="canBeSilenced">
                                 <h2
-                                    class="settings__menu-list-name" id="canBeSilenced">
+                                    class="settings__menu-list-name"
+                                    id="canBeSilenced">
                                     Expression
                                 </h2>
                             </li>
-                            <br>
-                            <br>
+                            <br />
+                            <br />
                             <li>
-                                <h2
-                                    class="settings__menu-list-name">
+                                <h2 class="settings__menu-list-name">
                                     Transparency
                                 </h2>
                                 <div class="checkbox">
                                     <input
                                         class="tgl tgl-flat"
                                         id="transparency-switch"
-                                        type="checkbox"/>
-                                    <label class="tgl-btn" for="transparency-switch"></label>
+                                        type="checkbox" />
+                                    <label
+                                        class="tgl-btn"
+                                        for="transparency-switch"></label>
                                 </div>
                             </li>
                         </ul>
@@ -304,9 +320,16 @@
                                     notes.
                                 </p>
                             </div>
-                            <i
-                                class="fa-solid fa-angle-right settings__menu-list-arrow"
-                                id="menu-extend"></i>
+                            <div class="checkbox">
+                                <input
+                                    class="tgl tgl-flat"
+                                    id="spell-check-switch"
+                                    type="checkbox"
+                                    onclick="spellCheck()" />
+                                <label
+                                    class="tgl-btn"
+                                    for="spell-check-switch"></label>
+                            </div>
                         </div>
                     </li>
                 </ul>
